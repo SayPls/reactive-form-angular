@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Registration} from "./model/registration";
-import {NgbTypeahead, NgbTypeaheadSelectItemEvent} from "@ng-bootstrap/ng-bootstrap";
+import {NgbTypeahead} from "@ng-bootstrap/ng-bootstrap";
 import {debounceTime, distinctUntilChanged, filter, map, merge, Observable, OperatorFunction, Subject} from "rxjs";
 import {Framework} from "./helpers/framework";
 import {Hobbies} from "./helpers/hobbies";
@@ -65,6 +65,7 @@ export class AppComponent implements OnInit {
       email: new FormControl('',
         [
           Validators.required,
+          Validators.maxLength(50),
           Validators.pattern(Regex.email)
         ],
         [
@@ -128,5 +129,9 @@ export class AppComponent implements OnInit {
       this.selectedHobbies.push(this.hobby.value as Hobby);
     }
     this.hobby.reset();
+  }
+
+  deleteHobby(hobby: Hobby) {
+    this.selectedHobbies = this.selectedHobbies.filter(h => h.name !== hobby.name);
   }
 }

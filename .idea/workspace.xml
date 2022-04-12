@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="191a4b96-cdc9-4c9c-b789-46fdc6681c76" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/registration/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/registration/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/registration/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/registration/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/registration/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/registration/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration/src/polyfills.ts" beforeDir="false" afterPath="$PROJECT_DIR$/registration/src/polyfills.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration/src/styles.sass" beforeDir="false" afterPath="$PROJECT_DIR$/registration/src/styles.sass" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +23,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectId" id="27eJJNkprf6ueSIP24TrE0F11eP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -38,7 +36,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/registration" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="ts.external.directory.path" value="D:\reactive-form-angular\registration\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -63,6 +63,8 @@
       <option name="presentableId" value="Default" />
       <updated>1649674553449</updated>
       <workItem from="1649674557409" duration="39473000" />
+      <workItem from="1649747163365" duration="81000" />
+      <workItem from="1649747377322" duration="69000" />
     </task>
     <servers />
   </component>

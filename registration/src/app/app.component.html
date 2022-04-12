@@ -9,9 +9,17 @@
       <input
         type="text" class="form-control"
         placeholder="Please write your firstname"
-        formControlName="firstName"
-        id="firstName"
+        formControlName="firstName" id="firstName"
+        [class.is-invalid]="(form.controls['firstName'].dirty || form.controls['firstName'].touched) && form.controls['firstName'].invalid"
       >
+      <ul>
+        <li class="text-danger" *ngIf="form.controls['firstName'].hasError('required') && form.controls['firstName'].touched">
+          Firstname is required.
+        </li>
+        <li class="text-danger" *ngIf="form.controls['firstName'].hasError('minlength') || form.controls['firstName'].hasError('maxlength')">
+          Your firstname must be between 2 and 25 characters.
+        </li>
+      </ul>
     </div>
 
     <div class="pb-3">
@@ -19,26 +27,33 @@
       <input
         type="text" class="form-control"
         placeholder="Please write your lastname"
-        formControlName="lastName"
-        id="lastName"
+        formControlName="lastName" id="lastName"
+        [class.is-invalid]="(form.controls['lastName'].dirty || form.controls['lastName'].touched) && form.controls['lastName'].invalid"
       >
+      <ul>
+        <li class="text-danger" *ngIf="form.controls['lastName'].hasError('required') && form.controls['lastName'].touched">
+          Lastname is required.
+        </li>
+        <li class="text-danger" *ngIf="form.controls['lastName'].hasError('minlength') || form.controls['lastName'].hasError('maxlength')">
+          Your lastname must be between 2 and 25 characters.
+        </li>
+      </ul>
     </div>
 
     <div class="pb-3">
-      <label for="dueDate" class="form-label text">DateOfBirth</label>
+      <label for="DateOfBirth" class="form-label text">DateOfBirth</label>
       <div class="input-group">
         <input
           class="form-control" placeholder="yyyy-mm-dd"
-          name="dp"  ngbDatepicker #d="ngbDatepicker" id="dueDate"
-          formControlName="dateOfBirth"
+          name="dp"  ngbDatepicker #d="ngbDatepicker"
+          formControlName="dateOfBirth" id="DateOfBirth"
           [class.is-invalid]="form.controls['dateOfBirth'].touched && form.controls['dateOfBirth'].invalid"
         >
-        <button class="btn btn-outline-primary calendar" (click)="d.toggle()" type="button"></button>
+        <button class="btn btn-outline-primary calendar" (click)="d.toggle()" type="button">&#8659;</button>
       </div>
       <ul>
-        <li class="text-danger"
-            *ngIf="form.controls['dateOfBirth'].invalid && (form.controls['dateOfBirth'].touched || form.controls['dateOfBirth'].dirty)">
-          <span>Due date must be YYYY-MM-DD and not required.</span>
+        <li class="text-danger" *ngIf="form.controls['dateOfBirth'].invalid && (form.controls['dateOfBirth'].touched || form.controls['dateOfBirth'].dirty)">
+          <span>DateOfBirth must be YYYY-MM-DD and not required.</span>
         </li>
       </ul>
     </div>
@@ -50,10 +65,17 @@
         placeholder="Please write your email"
         formControlName="email"
         id="email"
+        [class.is-invalid]="(form.controls['email'].dirty || form.controls['email'].touched) && form.controls['email'].invalid"
       >
       <ul>
-        <li class="text-danger" *ngIf="form.controls['email'].hasError('pattern') || form.controls['email'].hasError('maxlength')">
-          Invalid email address
+        <li class="text-danger" *ngIf="form.controls['email'].hasError('required') && form.controls['email'].touched">
+          Email is required.
+        </li>
+        <li class="text-danger" *ngIf="form.controls['email'].hasError('pattern')">
+          Invalid email address.
+        </li>
+        <li class="text-danger" *ngIf="form.controls['email'].hasError('maxlength')">
+          Max length 50 characters.
         </li>
         <li class="text-danger" *ngIf="form.controls['email'].hasError('emailExists')">
           This email address is already registered. Please use another one.
@@ -70,36 +92,72 @@
          [editable]='false' #frameworkInstance="ngbTypeahead"
          [class.is-invalid]="form.controls['framework'].touched && form.controls['framework'].invalid"
       />
+      <ul>
+        <li class="text-danger" *ngIf="form.controls['framework'].hasError('required') && form.controls['framework'].touched">
+          Framework is required or invalid.
+        </li>
+      </ul>
     </div>
 
     <div class="pb-3" *ngIf="form.controls['framework'].value === 'angular'">
       <label for="frameworkVersionAngular" class="form-label text">Framework Version</label>
-      <select class="form-select" formControlName="frameworkVersion" id="frameworkVersionAngular">
+      <select
+        class="form-select"
+        formControlName="frameworkVersion" id="frameworkVersionAngular"
+        [class.is-invalid]="form.controls['frameworkVersion'].touched && form.controls['frameworkVersion'].invalid"
+      >
         <option value="1.1.1">1.1.1</option>
         <option value="1.2.1">1.2.1</option>
         <option value="1.3.1">1.3.1</option>
       </select>
+      <ul>
+        <li class="text-danger" *ngIf="form.controls['frameworkVersion'].hasError('required') && form.controls['frameworkVersion'].touched">
+          FrameworkVersion is required.
+        </li>
+      </ul>
     </div>
 
     <div class="pb-3" *ngIf="form.controls['framework'].value === 'react'">
       <label for="frameworkVersionReact" class="form-label text">Framework Version</label>
-      <select class="form-select" formControlName="frameworkVersion" id="frameworkVersionReact">
+      <select
+        class="form-select"
+        formControlName="frameworkVersion" id="frameworkVersionReact"
+        [class.is-invalid]="form.controls['frameworkVersion'].touched && form.controls['frameworkVersion'].invalid"
+      >
         <option value="1.1.1">1.1.1</option>
         <option value="1.2.1">1.2.1</option>
         <option value="1.3.1">1.3.1</option>
       </select>
+      <ul>
+        <li class="text-danger" *ngIf="form.controls['frameworkVersion'].hasError('required') && form.controls['frameworkVersion'].touched">
+          FrameworkVersion is required.
+        </li>
+      </ul>
     </div>
 
     <div class="pb-3" *ngIf="form.controls['framework'].value === 'vue'">
       <label for="frameworkVersionVue" class="form-label text">Framework Version</label>
-      <select class="form-select" formControlName="frameworkVersion" id="frameworkVersionVue">
+      <select
+        class="form-select"
+        formControlName="frameworkVersion" id="frameworkVersionVue"
+        [class.is-invalid]="form.controls['frameworkVersion'].touched && form.controls['frameworkVersion'].invalid"
+      >
         <option value="2.1.2">2.1.2</option>
         <option value="3.2.4">3.2.4</option>
         <option value="4.3.1">4.3.1</option>
       </select>
+      <ul>
+        <li class="text-danger" *ngIf="form.controls['frameworkVersion'].hasError('required') && form.controls['frameworkVersion'].touched">
+          FrameworkVersion is required.
+        </li>
+      </ul>
     </div>
+
+
   </form>
+
   <form [formGroup]="hobby">
+
     <div class="w100-dropdown-container pb-3">
       <label for="hobbies" class="form-label text">Hobbies</label>
       <input
@@ -107,23 +165,47 @@
         formControlName="name" [ngbTypeahead]="searchHobbies"
         (focus)="hobbyFocus$.next($any($event).target.value)" (click)="hobbyClick$.next($any($event).target.value)"
         [editable]='false' #hobbyInstance="ngbTypeahead"
+        [class.is-invalid]="hobby.controls['name'].touched && selectedHobbies.length === 0 && hobby.controls['name'].invalid"
       />
+      <ul>
+        <li class="text-danger" *ngIf="selectedHobbies.length === 0 && hobby.controls['name'].touched && hobby.controls['name'].invalid">
+          Hobby is required.
+        </li>
+      </ul>
     </div>
+
     <div class="d-flex justify-content-center" *ngIf="hobby.valid">
-      <button type="submit" class="btn btn-outline-primary" [disabled]="!hobby.valid" (click)="addHobby()">Add hobbies</button>
+      <button type="submit" class="btn btn-outline-primary" (click)="addHobby()">Add hobbies</button>
     </div>
+
     <div class="w100-dropdown-container pb-3">
       <label for="duration" class="form-label text">Hobby duration</label>
       <input
-        id="duration" type="text" class="form-control" placeholder="Select Hobbies"
+        id="duration" type="text" class="form-control" placeholder="Select duration"
         formControlName="duration" [ngbTypeahead]="searchDuration"
         (focus)="durationFocus$.next($any($event).target.value)" (click)="durationClick$.next($any($event).target.value)"
         [editable]='false' #durationInstance="ngbTypeahead"
+        [class.is-invalid]="hobby.controls['duration'].touched && selectedHobbies.length === 0 && hobby.controls['duration'].invalid"
       />
+      <ul>
+        <li class="text-danger" *ngIf="selectedHobbies.length === 0 && hobby.controls['duration'].touched && hobby.controls['duration'].invalid">
+          Duration is required.
+        </li>
+      </ul>
+    </div>
+
+    <div class="text pb-3">
+      <span class="hobby"  *ngFor="let hobby of selectedHobbies">
+        {{hobby.name}}
+        <i  (click)="deleteHobby(hobby)">&times;</i>
+      </span>
+
     </div>
 
   </form>
+
   <div class="d-flex justify-content-center">
     <button type="submit" class="btn btn-outline-primary" [disabled]="!form.valid || selectedHobbies.length === 0" (click)="onSubmit()">Registration</button>
   </div>
+
 </div>
