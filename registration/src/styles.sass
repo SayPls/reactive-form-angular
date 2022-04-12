@@ -1,1 +1,96 @@
 /* You can add global styles to this file, and also import other style files */
+
+// Override bootstrap variables
+$primary:                  #8834ee
+$secondary:                #6c757d
+$danger:                   #dc3545
+
+$font-family-base:          'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+$border-radius:             0.5rem
+
+$font-size-base:            1rem
+
+$input-bg: #1d1e22
+$input-disabled-bg: #1d1e22
+$input-border-color: $secondary
+$input-focus-border-color: $primary
+$input-color: #c2c4c6
+
+// Custom variables
+$background-color:          #131416
+$background-panel-color:    #1d1e22
+
+$secondary-hover: #2d2e33
+
+$base-text-color:           #c2c4c6
+$muted-text-color:          #6c757d
+$accent-text-color:         #57ABFF
+
+$custom-select-color: $base-text-color
+$custom-select-bg: $background-panel-color
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap'
+
+body
+  margin: 0
+  background-color: $background-color
+  display: flex
+  justify-content: center
+
+.text
+  color: #c6c8c9
+  font-weight: bold
+ul
+  list-style: none
+  padding: 0
+  margin: 0
+
+.ngb-datepicker, .ngb-dp-header, .ngb-dp-week
+  background-color: $background-panel-color !important
+
+.ngb-dp-weekday, .btn-light
+  color: $base-text-color !important
+
+.btn-light
+  &:hover, &.active
+    background-color: $primary !important
+
+.calendar
+  color: $base-text-color
+  &:hover
+    background-color: $secondary
+
+.w100-dropdown-container
+  position: relative
+  .dropdown-menu
+    width: 100%
+    background-color: $background-panel-color
+    display: flex
+    justify-content: center
+    .dropdown-item
+      color: $base-text-color
+      border: 1px solid $secondary
+    .dropdown-item.active
+        color: $background-color
+
+.form-group
+  width: 250px
+
+.hobby
+  background: $background-color
+  margin: 4px
+  padding: 2px 6px
+  border-radius: 5px
+  border: 1px solid $secondary
+  color: $secondary
+  cursor: pointer
+  pointer-events: none
+
+  &:hover
+    background: $danger
+    color: $background-color
+    transition: all .2s ease
+
+  i
+    pointer-events: auto
